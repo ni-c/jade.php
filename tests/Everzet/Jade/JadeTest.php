@@ -353,6 +353,12 @@ HTML;
         $this->assertEquals('<p id="<?php echo \'name \' . $name . " =)" ?>">Hello, (bracket =) )</p>', $this->parse('p(id: {{\'name \' . $name . " =)"}}) Hello, (bracket =) )'));
     }
     
+    public function testMultipleCodeChunks()
+    {
+        $this->assertEquals('<p id="<?php echo $name ?>" foo="<?php echo $bar ?>"></p>', $this->parse('p(id: {{$name}}, foo: {{$bar}})'));
+        $this->assertEquals('<p><?php echo $hello ?>, <?php echo $world ?></p>', $this->parse('p {{$hello}}, {{$world}}'));
+    }
+    
     public function testCode()
     {
         $jade = <<<Jade
