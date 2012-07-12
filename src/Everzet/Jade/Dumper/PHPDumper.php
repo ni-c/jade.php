@@ -51,7 +51,8 @@ class PHPDumper implements DumperInterface
         "/^ *switch[ \(]+.*\: *$/"    => 'endswitch',
         "/^ *case *.* *\: *$/"        => 'break'
     );
-    protected $nextIsIf = array();
+    protected $nextExtendsIfRegexp = "/^ *else *(?:if[ \(]+.*)?\: *$/";
+    protected $nextExtendsIf = array();
     protected $visitors = array(
         'code'      => array()
       , 'comment'   => array()
@@ -142,7 +143,7 @@ class PHPDumper implements DumperInterface
                 $html .= "\n";
             }
 
-            $this->nextIsIf[$level] = isset($childs[$i + 1]) && ($childs[$i + 1] instanceof CodeNode);
+            $this->nextExtendsIf[$level] = isset($childs[$i + 1]) && ($childs[$i + 1] instanceof CodeNode) && (preg_match($this->nextExtendsIfRegexp, $childs[$i + 1]->getCode()));
             $last  = $this->dumpNode($child, $level);
             $html .= $last;
         }
@@ -221,7 +222,7 @@ class PHPDumper implements DumperInterface
                 $html .= "\n";
                 $childs = $node->getChilds();
                 foreach ($childs as $i => $child) {
-                    $this->nextIsIf[$level + 1] = isset($childs[$i + 1]) && ($childs[$i + 1] instanceof CodeNode);
+                    $this->nextExtendsIf[$level + 1] = isset($childs[$i + 1]) && ($childs[$i + 1] instanceof CodeNode) && (preg_match($this->nextExtendsIfRegexp, $childs[$i + 1]->getCode()));
                     $html .= $this->dumpNode($child, $level + 1);
                 }
                 $html .= "\n" . str_repeat('  ', $level);
@@ -322,7 +323,7 @@ class PHPDumper implements DumperInterface
                 if (preg_match($regex, $node->getCode())) {
                     $begin  = '<?php ' . preg_replace('/^ +| +$/', '', $node->getCode()) . " ?>\n";
                     $end    = "\n" . str_repeat('  ', $level) . '<?php ' . $ending . '; ?>';
-                    if ('endif' === $ending && isset($this->nextIsIf[$level]) && $this->nextIsIf[$level]) {
+                    if ('endif' === $ending && isset($this->nextExtendsIf[$level]) && $this->nextExtendsIf[$level]) {
                         $end = '';
                     }
                     break;
