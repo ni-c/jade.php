@@ -26,7 +26,7 @@ class JavaScriptFilter implements FilterInterface
      */
     public function filter($text, array $attributes, $indent)
     {
-        $html  = $indent . '<script type="text/javascript">' . "\n";
+        $html  = $indent . '<script>' . "\n";
         $html .= $text;
         $html .= "\n" . $indent . '</script>';
 
