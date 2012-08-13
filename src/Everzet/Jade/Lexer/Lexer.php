@@ -347,7 +347,7 @@ class Lexer implements LexerInterface
 
                     if ('true' === $value) {
                         $value = true;
-                    } elseif (empty($value) || 'null' === $value || 'false' === $value) {
+                    } elseif ((empty($value) && $value !== '0') || 'null' === $value || 'false' === $value) {
                         $value = false;
                     }
                 }
