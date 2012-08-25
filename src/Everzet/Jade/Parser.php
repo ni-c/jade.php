@@ -1,19 +1,4 @@
 <?php
-
-namespace Everzet\Jade;
-
-use Everzet\Jade\Exception\Exception;
-
-use Everzet\Jade\Lexer\LexerInterface;
-
-use Everzet\Jade\Node\BlockNode;
-use Everzet\Jade\Node\CodeNode;
-use Everzet\Jade\Node\CommentNode;
-use Everzet\Jade\Node\DoctypeNode;
-use Everzet\Jade\Node\FilterNode;
-use Everzet\Jade\Node\TagNode;
-use Everzet\Jade\Node\TextNode;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>

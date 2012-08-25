@@ -1,10 +1,4 @@
 <?php
-
-namespace Everzet\Jade\Dumper;
-
-use Everzet\Jade\Visitor\VisitorInterface;
-use Everzet\Jade\Node\BlockNode;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>

@@ -1,7 +1,4 @@
 <?php
-
-namespace Everzet\Jade\Lexer;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>

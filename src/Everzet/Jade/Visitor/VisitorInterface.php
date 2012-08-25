@@ -1,9 +1,4 @@
 <?php
-
-namespace Everzet\Jade\Visitor;
-
-use Everzet\Jade\Node\Node;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>

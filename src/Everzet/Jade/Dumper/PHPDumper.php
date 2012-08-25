@@ -1,21 +1,5 @@
 <?php
 
-namespace Everzet\Jade\Dumper;
-
-use Everzet\Jade\Exception\Exception;
-
-use Everzet\Jade\Visitor\VisitorInterface;
-use Everzet\Jade\Filter\FilterInterface;
-
-use Everzet\Jade\Node\Node;
-use Everzet\Jade\Node\BlockNode;
-use Everzet\Jade\Node\DoctypeNode;
-use Everzet\Jade\Node\TagNode;
-use Everzet\Jade\Node\TextNode;
-use Everzet\Jade\Node\FilterNode;
-use Everzet\Jade\Node\CommentNode;
-use Everzet\Jade\Node\CodeNode;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>

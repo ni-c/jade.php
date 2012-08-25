@@ -1,10 +1,4 @@
 <?php
-
-namespace Everzet\Jade\Visitor;
-
-use Everzet\Jade\Node\Node;
-use Everzet\Jade\Node\TagNode;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>

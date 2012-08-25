@@ -1,11 +1,4 @@
 <?php
-
-namespace Everzet\Jade;
-
-use Everzet\Jade\Exception\Exception;
-use Everzet\Jade\Lexer\LexerInterface;
-use Everzet\Jade\Dumper\DumperInterface;
-
 /*
  * This file is part of the Jade.php.
  * (c) 2010 Konstantin Kudryashov <ever.zet@gmail.com>
